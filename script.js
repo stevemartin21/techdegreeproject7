@@ -67,8 +67,8 @@ function checkLetter (selected){
 	const letterSelected =selected.textContent.toLowerCase();
 	for (let i=0; i<letters.length; i+=1){
 		if(letterSelected === letters[i].textContent.toLowerCase()) {
-			letters[i].className='show';
-			return letters;
+			letters[i].classList.add('show');
+			return letters[i];
 		}
 		else {
 			return null;
@@ -79,6 +79,17 @@ function checkLetter (selected){
 
 
 
+keyboard.addEventListener('click', (event) =>{
+	if(event.target.tagName='BUTTON'){
+	 event.target.className = 'chosen';
+     event.target.disabled = 'true';
+
+    let letterChosen = event.target;
+    checkLetter(letterChosen);
+
+     
+	}
+});
 
 
 
