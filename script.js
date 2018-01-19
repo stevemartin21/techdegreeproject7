@@ -6,6 +6,9 @@ const phrase = document.getElementById('phrase');
 const start = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
 
+const show = document.querySelectorAll('.show');
+const scoreboard= document.querySelector('#scoreboard')
+
 /* Missed Variable is let because it will change as questions are missed */
 let missed = 0;
 
@@ -57,22 +60,27 @@ function addPhrasetoDisplay(letter){
 
 addPhrasetoDisplay(phraseArray);
 
+/* Declare Variable to catch all elements with class of letter */
 
-const letters = document.querySelectorAll('.letter');
+
+const letters = phrase.querySelectorAll('.letter');
 
 /*  Not sure why the check letter function doesn't work */
 
 function checkLetter (selected){
 	
+
 	const letterSelected =selected.textContent.toLowerCase();
 	for (let i=0; i<letters.length; i+=1){
 		if(letterSelected === letters[i].textContent.toLowerCase()) {
 			letters[i].classList.add('show');
-			return letters[i];
+			
 		}
+		/*
 		else {
 			return null;
 		}
+		*/
 	}
 }
 
@@ -80,7 +88,7 @@ function checkLetter (selected){
 
 
 keyboard.addEventListener('click', (event) =>{
-	if(event.target.tagName='BUTTON'){
+	if(event.target.tagName==='BUTTON'){
 	 event.target.className = 'chosen';
      event.target.disabled = 'true';
 
