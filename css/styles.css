@@ -104,6 +104,10 @@ button {
   background-color: #76CE82;
 }
 
+li{
+  margin-top:10px;
+}
+
 /* Keyboard */
 
 .keyrow {
